@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dtc-lab",
+            "outputPath": "dist/dtc-lab/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -105,6 +105,58 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/dtc-lab/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "dtc-lab:build:development",
+              "serverTarget": "dtc-lab:server:development"
+            },
+            "production": {
+              "browserTarget": "dtc-lab:build:production",
+              "serverTarget": "dtc-lab:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routesFile": "./routes.txt"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dtc-lab:build:production",
+              "serverTarget": "dtc-lab:server:production"
+            },
+            "development": {
+              "browserTarget": "dtc-lab:build:development",
+              "serverTarget": "dtc-lab:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

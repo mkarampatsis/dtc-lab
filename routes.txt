@@ -1,0 +1,5 @@
+/home
+/lab
+/education
+/research
+/contact
