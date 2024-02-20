@@ -22,10 +22,25 @@
         <div class="col-xxl-7">
           <!-- Header profile picture-->
           <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-            <div class="profile bg-gradient-primary-to-secondary">
+            <div class="profile ">
               <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
               <!-- Watch a tutorial on how to do this on YouTube (link)-->
-              <img class="profile-img" src="assets/assets/logo.png" alt="DTC-Lab" />
+              <!-- <img class="profile-img" src="assets/assets/logo.png" alt="DTC-Lab" /> -->
+              @if (images) {
+                <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+                  @for (image of images; track image) {
+                    <ng-template ngbSlide>
+                      <div class="picsum-img-wrapper">
+                        <img [src]="image" alt="Random slide" class="rounded"/>
+                      </div>
+                      <!-- <div class="carousel-caption">
+                        <h3>No mouse navigation</h3>
+                        <p>This carousel hides navigation arrows and indicators.</p>
+                      </div> -->
+                    </ng-template>
+                  }
+                </ngb-carousel>
+              }
             </div>
           </div>
         </div>
