@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HistoryComponent } from './history/history.component';
 import { LawComponent } from './law/law.component';
@@ -13,7 +14,8 @@ import { StaffComponent } from './staff/staff.component';
   standalone: true,
   imports: [
     CommonModule, 
-    NgbNavModule, 
+    NgbNavModule,
+    NgbCarouselModule, 
     HistoryComponent, 
     LawComponent, 
     RegulationComponent, 
@@ -25,4 +27,10 @@ import { StaffComponent } from './staff/staff.component';
 })
 export class LabComponent {
   active = 1;
+  images = [
+    'assets/images/lab/lab-2-1.png', 
+    'assets/images/lab/lab-4-1.jpg',
+    'assets/images/lab/raspberry-pi-1.jpg',
+    'assets/images/lab/raspberry-pi-2.jpg'
+  ]
 }
