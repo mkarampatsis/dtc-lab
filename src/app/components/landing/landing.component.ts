@@ -15,6 +15,8 @@ export class LandingComponent {
 	showNavigationIndicators = false;
   images = [
     'assets/images/carousel/image1.png', 
+    'assets/images/carousel/newyear1.png', 
+    'assets/images/carousel/newyear2.png', 
     'assets/images/carousel/image3.jpg',
     'assets/images/carousel/image4.png',
     'assets/images/carousel/image2.png' 
